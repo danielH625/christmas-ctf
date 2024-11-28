@@ -3,20 +3,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalContent = document.getElementById("modal-body");
     const modalClose = document.getElementById("modal-close");
 
-    // Fetch solved challenges on page load and update UI
-    fetch("/get_solved")
-        .then(response => response.json())
-        .then(data => {
-            const solvedFlags = data.solved_flags;
-            for (const key in solvedFlags) {
-                if (solvedFlags[key]) {
-                    const challengeBox = document.querySelector(`[data-challenge-id="${key}"]`);
-                    if (challengeBox) {
-                        challengeBox.classList.add("solved");
-                    }
-                }
+    // Initialize solved flags from local storage
+    const solvedFlags = JSON.parse(localStorage.getItem("solvedFlags")) || {};
+
+    // Update UI based on solved flags
+    for (const [challengeId, isSolved] of Object.entries(solvedFlags)) {
+        if (isSolved) {
+            const challengeBox = document.querySelector(`[data-challenge-id="${challengeId}"]`);
+            if (challengeBox) {
+                challengeBox.classList.add("solved");
+                challengeBox.style.pointerEvents = "none"; // Disable further clicks
             }
-        });
+        }
+    }
 
     // Handle challenge box clicks
     document.querySelectorAll(".challenge-box").forEach(box => {
@@ -107,10 +106,15 @@ document.addEventListener("DOMContentLoaded", () => {
                     responseElement.textContent = "Correct flag!";
                     responseElement.style.color = "green";
 
-                    // Update challenge box to green
+                    // Update solved state in local storage
+                    solvedFlags[challengeId] = true;
+                    localStorage.setItem("solvedFlags", JSON.stringify(solvedFlags));
+
+                    // Update UI
                     const challengeBox = document.querySelector(`[data-challenge-id="${challengeId}"]`);
                     if (challengeBox) {
                         challengeBox.classList.add("solved");
+                        challengeBox.style.pointerEvents = "none"; // Disable further clicks
                     }
 
                     setTimeout(() => {
