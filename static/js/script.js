@@ -17,6 +17,22 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    // Handle reset progress button click
+    document.getElementById("reset-progress").addEventListener("click", () => {
+        if (confirm("Are you sure you want to reset your progress?")) {
+            // Clear local storage
+            localStorage.removeItem("solvedFlags");
+
+            // Reset UI
+            document.querySelectorAll(".challenge-box").forEach(box => {
+                box.classList.remove("solved");
+                box.style.pointerEvents = ""; // Re-enable clicks
+            });
+
+            alert("Progress has been reset.");
+        }
+    });
+
     // Handle challenge box clicks
     document.querySelectorAll(".challenge-box").forEach(box => {
         box.addEventListener("click", (event) => {
