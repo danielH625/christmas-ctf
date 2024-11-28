@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeopardy CTF</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <h1>Jeopardy CTF</h1>
+    <div class="categories">
+        <div class="category">
+            <h2>Crypto</h2>
+            <div class="challenges">
+                <a href="#" class="challenge-box" data-challenge-id="crypto1">13</a>
+                <a href="#" class="challenge-box" data-challenge-id="crypto2">Vinegar</a>
+            </div>
+        </div>
+        <div class="category">
+            <h2>Forensics</h2>
+            <div class="challenges">
+                <a href="#" class="challenge-box" data-challenge-id="forensics1">Redacted</a>
+                <a href="#" class="challenge-box" data-challenge-id="forensics2">Odd Combination</a>
+            </div>
+        </div>
+        <div class="category">
+            <h2>Web</h2>
+            <div class="challenges">
+                <a href="#" class="challenge-box" data-challenge-id="web1">Secrets</a>
+                <a href="#" class="challenge-box" data-challenge-id="web2">Admin Portal</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="challenge-modal" class="modal">
+        <div class="modal-content">
+            <span id="modal-close" class="close">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
