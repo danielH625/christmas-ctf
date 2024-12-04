@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 # Store flags securely
 correct_flags = {
-    "crypto1": "flag{not_too_bad_of_a_problem}",
+    "crypto1": "flag{crypo_is_easy}",
     "crypto2": "flag{sm3ll5_1ik3_vin3g3r}",
     "forensics1": "flag{C4n_Y0u_S33_m3_fully}",
     "forensics2": "flag{tw0_fi13_7yp3s_in_0n3}",
@@ -25,7 +25,7 @@ def challenge_data(challenge_id):
         "name": "13",
         "description": """See, cryptography isn't too hard.<br>
         Enter the decoded flag below to complete the challenge:<br>
-        <br>synt{abg_gbb_onq_bs_n_ceboyrz}""",
+        <br>synt{pelcb_vf_rnfl}""",
         "download": None,
         "hidden_link": None
     },
