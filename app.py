@@ -6,7 +6,7 @@ app = Flask(__name__)
 correct_flags = {
     "crypto1": "flag{crypo_is_easy}",
     "crypto2": "flag{sm3ll5_1ik3_vin3g3r}",
-    "forensics1": "flag{C4n_Y0u_S33_m3_fully}",
+    "forensics1": "flag{L00k_past_th3_surfac5_13v31}",
     "forensics2": "flag{tw0_fi13_7yp3s_in_0n3}",
     "web1": "flag{s3cr3ts_@r3_n0_fun}",
     "web2": "flag{admin_acc3s5}"
